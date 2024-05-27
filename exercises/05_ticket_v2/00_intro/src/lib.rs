@@ -1,6 +1,7 @@
 fn intro() -> &'static str {
     // TODO: fix me 👇
-    "I'm ready to __!"
+    let var_name = "I'm ready to refine the `Ticket` type!";
+    var_name
 }
 
 #[cfg(test)]

@@ -36,7 +36,13 @@ impl Ticket {
         }
     }
     pub fn assigned_to(&self) -> Option<&String> {
-        todo!()
+        match *self {
+            Ticket {
+                status: Status::InProgress { ref assigned_to },
+                ..
+            } => Some(assigned_to),
+            _ => None,
+        }
     }
 }
 
