@@ -15,7 +15,30 @@
 
 #[cfg(test)]
 mod tests {
-    use super::Power;
+    // use super::Power;
+
+    trait Power<T> {
+        fn power(self, exp: T) -> Self;
+    }
+
+    impl Power<u16> for u32 {
+        fn power(self, exp: u16) -> Self {
+            self.pow(exp as u32)
+        }
+    }
+
+    impl Power<u32> for u32 {
+        fn power(self, exp: u32) -> Self {
+            self.pow(exp)
+        }
+    }
+
+    impl Power<&u32> for u32 {
+        fn power(self, exp: &u32) -> Self {
+            self.pow(*exp)
+        }
+    }
+
 
     #[test]
     fn test_power_u16() {
